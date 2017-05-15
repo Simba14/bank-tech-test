@@ -17,7 +17,4 @@ class Statement
     list.join('\n')
   end
 
-  def format
-
-  end
 end
