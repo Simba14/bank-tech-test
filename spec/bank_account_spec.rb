@@ -13,7 +13,7 @@ describe BankAccount do
     end
 
     it 'increases the balance by the amount deposited' do
-      expect { account.deposit }.to change { account.balance }.by 100
+      expect { account.deposit(100) }.to change { account.balance }.by 100
     end
   end
 end

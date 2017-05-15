@@ -5,10 +5,15 @@ class BankAccount
     @balance = 0
   end
 
+  def deposit(value)
+    self.balance += value
+  end
+
   def statement
     balance
   end
 
   # private
 
+  attr_writer :balance
 end
