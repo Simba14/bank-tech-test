@@ -25,7 +25,7 @@ describe BankAccount do
     end
 
     it 'decreases the balance by the amount withdrawn' do
-      expect { account.withdraw(50) }.to change { account.balance }.by -50
+      expect { account.withdraw(50) }.to change { account.balance }.by(-50)
     end
   end
 end

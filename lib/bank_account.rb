@@ -6,13 +6,17 @@ class BankAccount
   end
 
   def deposit(value)
-    self.balance += value
+    procedure(value)
   end
 
   def withdraw(value)
-    self.balance -= value
+    procedure(-value)
   end
   # private
 
   attr_writer :balance
+
+  def procedure(value)
+    self.balance += value
+  end
 end
