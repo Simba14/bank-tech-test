@@ -16,4 +16,16 @@ describe BankAccount do
       expect { account.deposit(100) }.to change { account.balance }.by 100
     end
   end
+
+  describe '#withdraw' do
+    before { account.deposit(100) }
+    it 'withdraws money from an account' do
+      account.withdraw(100)
+      expect(account.balance).to eq 0
+    end
+
+    it 'decreases the balance by the amount withdrawn' do
+      expect { account.withdraw(50) }.to change { account.balance }.by -50
+    end
+  end
 end
