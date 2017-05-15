@@ -2,7 +2,7 @@
 class BankAccount
   attr_reader :balance, :log
   def initialize
-    @balance = 0
+    @balance = 0.00
     @log = []
   end
 
@@ -13,7 +13,12 @@ class BankAccount
   def withdraw(value)
     procedure(-value)
   end
-  # private
+
+  def print_statement
+    Statement.new(log).print
+  end
+
+  private
 
   attr_writer :balance
 

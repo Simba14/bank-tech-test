@@ -32,5 +32,22 @@ describe BankAccount do
     it 'decreases the balance by the amount withdrawn' do
       expect { account.withdraw(50) }.to change { account.balance }.by(-50)
     end
+
+    it 'logs the withdrawn amount and new balance' do
+      account.withdraw(100)
+      expect(account.log).to eq [{ credit: 100, debit: 0, balance: 100 }, { credit: 0, debit: 100, balance: 0 }]
+    end
+  end
+
+  describe '#print_statement' do
+    before do
+      account.deposit(1000)
+      account.withdraw(300)
+      account.deposit(200)
+    end
+
+    it 'displays the transacation history of the account' do
+      expect(account.print_statement).to eq 'credit || debit || balance\\n1000.00 || 0.00 || 1000.00\\n0.00 || 300.00 || 700.00\\n200.00 || 0.00 || 900.00'
+    end
   end
 end
