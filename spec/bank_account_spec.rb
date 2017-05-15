@@ -15,6 +15,11 @@ describe BankAccount do
     it 'increases the balance by the amount deposited' do
       expect { account.deposit(100) }.to change { account.balance }.by 100
     end
+
+    it 'logs the deposited amount and new balance' do
+      account.deposit(100)
+      expect(account.log).to eq [{ credit: 100, debit: 0, balance: 100 }]
+    end
   end
 
   describe '#withdraw' do
