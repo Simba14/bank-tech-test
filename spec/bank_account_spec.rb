@@ -18,7 +18,7 @@ describe BankAccount do
 
     it 'logs the deposited amount and new balance' do
       account.deposit(100)
-      expect(account.log).to eq [{ credit: 100, debit: 0, balance: 100 }]
+      expect(account.log).to eq [{ date: "15-05-17", credit: 100, debit: 0, balance: 100.0 }]
     end
   end
 
@@ -35,7 +35,7 @@ describe BankAccount do
 
     it 'logs the withdrawn amount and new balance' do
       account.withdraw(100)
-      expect(account.log).to eq [{ credit: 100, debit: 0, balance: 100 }, { credit: 0, debit: 100, balance: 0 }]
+      expect(account.log).to eq [{date: '15-05-17', credit: 100, debit: 0, balance: 100.0 }, {date: '15-05-17', credit: 0, debit: 100, balance: 0.0 }]
     end
   end
 
@@ -47,7 +47,7 @@ describe BankAccount do
     end
 
     it 'displays the transacation history of the account' do
-      expect(account.print_statement).to eq 'credit || debit || balance\\n1000.00 || 0.00 || 1000.00\\n0.00 || 300.00 || 700.00\\n200.00 || 0.00 || 900.00'
+      expect(account.print_statement).to eq 'date || credit || debit || balance\\n15-05-17 || 1000.00 || 0.00 || 1000.00\\n15-05-17 || 0.00 || 300.00 || 700.00\\n15-05-17 || 200.00 || 0.00 || 900.00'
     end
   end
 end

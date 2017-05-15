@@ -2,7 +2,7 @@
 class Transaction
   attr_reader :value, :details
   def initialize(value, new_balance)
-    @details = { credit: 0, debit: 0, balance: new_balance }
+    @details = { date: Date.today.strftime('%d-%m-%y'), credit: 0, debit: 0, balance: new_balance }
     @value = value
     debit_or_credit?
   end

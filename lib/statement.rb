@@ -6,10 +6,18 @@ class Statement
 
   def print
     divider = ' || '
-    list = ['credit || debit || balance']
+    list = ['date || credit || debit || balance']
     @log.each do |transaction|
-      list << sprintf('%.2f', transaction[:credit]) + divider + sprintf('%.2f', transaction[:debit]) + divider + sprintf('%.2f', transaction[:balance])
+      details = []
+      details.push(transaction.values)
+      line = details[0].map{ |x| x % 1 == 0 ? sprintf('%.2f', x) : x }.join(divider)
+      list << line
+      puts list
     end
     list.join('\n')
+  end
+
+  def format
+
   end
 end
