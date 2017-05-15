@@ -11,6 +11,6 @@ describe Statement do
   subject(:statement) { described_class.new(log) }
 
   it 'prints out the statement of the specified account' do
-    expect(statement.print).to eq 'date || credit || debit || balance\n15-05-17 || 100.00 || 0.00 || 100.00'
+    expect(statement.display).to eq 'date || credit || debit || balance\n15-05-17 || 100.00 || 0.00 || 100.00'
   end
 end

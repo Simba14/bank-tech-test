@@ -1,6 +1,9 @@
 require 'bank_account'
 describe BankAccount do
-  subject(:account) { described_class.new }
+
+  let(:transactions) { double :transactions }
+  let(:statement) { double :statement, new: nil, display: transactions}
+  subject(:account) { described_class.new(statement: statement) }
 
   it 'initializes with a balance of 0' do
     expect(account.balance).to eq 0
@@ -42,14 +45,12 @@ describe BankAccount do
   end
 
   describe '#print_statement' do
-    before do
+
+    it 'displays the transacation history of the account' do
       account.deposit(1000)
       account.withdraw(300)
       account.deposit(200)
-    end
-
-    it 'displays the transacation history of the account' do
-      expect(account.print_statement).to eq "date || credit || debit || balance\\n#{@date} || 1000.00 || 0.00 || 1000.00\\n#{@date} || 0.00 || 300.00 || 700.00\\n#{@date} || 200.00 || 0.00 || 900.00"
+      expect(account.print_statement).to eq nil
     end
   end
 end

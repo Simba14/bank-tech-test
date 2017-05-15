@@ -4,7 +4,7 @@ class Statement
     @log = log
   end
 
-  def print
+  def display
     divider = ' || '
     list = ['date || credit || debit || balance']
     @log.each do |transaction|

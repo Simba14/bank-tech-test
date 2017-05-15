@@ -1,9 +1,10 @@
 # Bank account object that stores value that is withdrawable/depositable
 class BankAccount
-  attr_reader :balance, :log
-  def initialize
+  attr_reader :balance, :log, :statement
+  def initialize(statement: Statement)
     @balance = 0.00
     @log = []
+    @statement = statement
   end
 
   def deposit(value)
@@ -15,7 +16,7 @@ class BankAccount
   end
 
   def print_statement
-    Statement.new(log).print
+    statement.new(log).display
   end
 
   private
