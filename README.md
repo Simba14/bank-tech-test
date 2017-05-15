@@ -1,6 +1,6 @@
-#Bank Account
+# Bank Account
 
-![Alt Text]https://travis-ci.org/Simba14/bank-tech-test.svg?branch=master
+![Alt Text](https://travis-ci.org/Simba14/bank-tech-test.svg?branch=master)
 
 Simple banking application written in Ruby, used as a practice tech test for interview preparation.
 
